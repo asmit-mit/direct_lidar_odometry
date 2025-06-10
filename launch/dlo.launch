@@ -16,7 +16,7 @@
   <arg name="imu_topic" default="imu"/>
 
   <!-- DLO Odometry Node -->
-  <node ns="$(arg robot_namespace)" name="dlo_odom" pkg="direct_lidar_odometry" type="dlo_odom_node" output="screen" clear_params="true">
+  <node name="dlo_odom" pkg="direct_lidar_odometry" type="dlo_odom_node" output="screen" clear_params="true">
 
     <!-- Load parameters -->
     <rosparam file="$(find direct_lidar_odometry)/cfg/dlo.yaml" command="load"/>
@@ -27,7 +27,7 @@
     <remap from="~imu" to="$(arg imu_topic)"/>
 
     <!-- Publications -->
-    <remap from="~odom" to="dlo/odom_node/odom"/>
+    <remap from="~odom" to="odom"/>
     <remap from="~pose" to="dlo/odom_node/pose"/>
     <remap from="~kfs" to="dlo/odom_node/odom/keyframe"/>
     <remap from="~keyframe" to="dlo/odom_node/pointcloud/keyframe"/>
@@ -35,7 +35,7 @@
   </node>
 
   <!-- DLO Mapping Node -->
-  <node ns="$(arg robot_namespace)" name="dlo_map" pkg="direct_lidar_odometry" type="dlo_map_node" output="screen" clear_params="true">
+  <node name="dlo_map" pkg="direct_lidar_odometry" type="dlo_map_node" output="screen" clear_params="true">
 
     <!-- Load parameters -->
     <rosparam file="$(find direct_lidar_odometry)/cfg/dlo.yaml" command="load"/>
