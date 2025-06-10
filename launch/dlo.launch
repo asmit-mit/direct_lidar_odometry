@@ -47,8 +47,4 @@
     <remap from="~map" to="dlo/map_node/map"/>
 
   </node>
-
-  <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="dlo_rviz" args="-d $(find direct_lidar_odometry)/launch/dlo.rviz"/>
-
 </launch>
